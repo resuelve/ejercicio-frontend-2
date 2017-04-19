@@ -1,5 +1,3 @@
-Ejercicio para aplicar como front-end a Resuelve
-
 Estamos buscando experiencia con
   - React
     - Experiencia con React Router
