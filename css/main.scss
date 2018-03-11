@@ -7,8 +7,8 @@ body {
   code {
     display: inline-block;
     letter-spacing: 1px;
-    background-color: #F0F0F0;
-    font-family: "Comic Sans MS";
+    background-color: #f0f0f0;
+    font-family: 'Comic Sans MS';
     background: -webkit-linear-gradient(#f4b642, #f441d6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -16,3 +16,54 @@ body {
 }
 
 /* Código de la tabla aquí */
+$primary-color: #1b5e20;
+
+th,
+td {
+  padding: 0 15px 0 15px;
+}
+
+.table-salary {
+  text-align: right;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.table-salary.salary-green {
+  background-color: #4caf50;
+}
+
+.table-salary.salary-red {
+  background-color: #e57373;
+}
+
+table tr:nth-child(even) {
+  background-color: #e8f5e9;
+}
+table tr:nth-child(odd) {
+  background-color: #d3f1d5;
+}
+
+table tr:hover {
+  background-color: #a5d6a7;
+}
+
+table th {
+  color: white;
+  background-color: $primary-color;
+}
+
+.primaryButton {
+  margin-left: 15px;
+  padding: 0 10px 0 10px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.primaryButton:hover {
+  color: white;
+  background-color: $primary-color;
+}
