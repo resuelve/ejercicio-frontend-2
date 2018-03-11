@@ -1,4 +1,4 @@
-let employees = [
+const employees = [
   {
     id: 0,
     name: 'Eduardo González',
@@ -89,6 +89,6 @@ let employees = [
     phone: '(248) 255 7702',
     email: 'adriana@gmail.com'
   }
-]
+];
 
-export default employees
+export default employees;
