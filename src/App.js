@@ -1,12 +1,57 @@
 import React, { Component } from 'react'
 import employees from './employees'
+import Head from './components/Head'
+import Inventario from './components/InventarioDinamico';
+import ListaDeEmpelados from './components/ListaDeEmpleados';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.agregarEmpleado = this.agregarEmpleado.bind(this);
+    this.cargarEjemplo = this.agregarEmpleado.bind(this);
+    //estado inicial
+    this.state = {
+      empleados: {},
+      clave: {}
+    };
+  }
+
+  agregarEmpleado (empleado) {
+    //actualizar estado
+    //copia
+    const empleados = {...this.state.empleados};
+    const contadorTiempo = Date.now(); 
+    empleados[`empleado-${contadorTiempo}`] = empleado; 
+    //cambio de estado
+    this.setState({ empleados });
+    }
+
+    //Funcion para cargar empleados
+    cargarEjemplo() {
+      this.setState({
+        empleados: employees
+      })
+    }
+
   render() {
     console.log(employees)
     return (
       <div id='employees'>
-        <h1>Lista de empleados</h1>
+        
+          <Head/>
+          <Inventario agregarEmpleado={this.agregarEmpleado}/>
+          <ListaDeEmpelados employees={this.props.employees}/>
+            
+            
+      </div>
+    );
+  }
+}
+
+
+export default App; 
+
+ {/* <h1>Lista de empleados</h1>
         <p>Ejercicio para aplicar como front-end en Resuelve.</p>
         <h2>Para JS</h2>
         <ol>
@@ -50,10 +95,4 @@ class App extends Component {
             <li>Si el salario es menor a 10,000 mostrarlo en color rojo, si es mayor mostrarlo en color verde</li>
             <li>Los botones de texto (como agregar nuevo empleado o imprimir a consola) deben tener fondo transparente y tener texto y borde en color verde</li>
             <li>Al hacer hover deben de poner su color de fondo con el mismo color del borde y el texto pasa a ser color blanco, esto debe tener una transición</li>
-          </ol>
-      </div>
-    );
-  }
-}
-
-export default App; 
+          </ol> */}
