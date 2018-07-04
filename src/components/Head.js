@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import '../main.css';
+
 
 class Header extends Component {
         render() {

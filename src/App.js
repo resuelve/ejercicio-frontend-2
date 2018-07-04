@@ -3,6 +3,8 @@ import employees from './employees'
 import Head from './components/Head'
 import Inventario from './components/InventarioDinamico';
 import ListaDeEmpelados from './components/ListaDeEmpleados';
+import './main.css';
+
 
 class App extends Component {
   constructor() {
@@ -39,7 +41,6 @@ class App extends Component {
       <div id='employees'>
         
           <Head/>
-          <Inventario agregarEmpleado={this.agregarEmpleado}/>
           <ListaDeEmpelados employees={this.props.employees}/>
             
             

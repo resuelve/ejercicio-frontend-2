@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import FormAgregarEmpleados from './FormAgregarEmpleado';
+import '../main.css';
+
 
 class Inventario extends Component {
         render() {

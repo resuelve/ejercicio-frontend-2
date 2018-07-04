@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { redondeoPrecio } from '../functions'; //Esportar función para los precios
-
+import '../main.css';
 
 class Empleado extends Component {
 
@@ -13,16 +13,13 @@ class Empleado extends Component {
             // );
             return(
                 <div>
-                    
                         <li>
-                            
                             <p>{this.props.empleado.name}</p>
                             <p>{this.props.empleado.company }</p>
                             <p>{this.props.empleado.salary}</p>
                             <p>{this.props.empleado.age }</p>
                             <p>{this.props.empleado.phone }</p>
-                            <p>{this.props.empleado.email}</p>
-                            <button>Modificar</button>
+                            <a href=""> <p>{this.props.empleado.email}</p></a>
                             <button>Eliminar x</button> 
                             {/* {this.props.details.name} */}
                         </li>
