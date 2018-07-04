@@ -370,7 +370,7 @@ template {
 [hidden] {
   display: none; }
 
-body {
+/* body {
   font-family: 'Rubik', sans-serif;
   line-height: 170%; }
   body code {
@@ -380,7 +380,7 @@ body {
     font-family: "Comic Sans MS";
     background: -webkit-linear-gradient(#f4b642, #f441d6);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    -webkit-text-fill-color: transparent; } */
 
 /* Código de la tabla aquí */
 

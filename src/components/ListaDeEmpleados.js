@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Empleado from './Empleado';
-import '../main.css';
-
+import '../styles/main.css'
 
 
 class ListaDeEmpelados extends Component {
@@ -46,33 +45,47 @@ class ListaDeEmpelados extends Component {
     render() { //buscador
         let  filteredEmployees = this.state.employees.filter(
             (empleado) => {
-            return empleado.name.toLowerCase().trim().indexOf(this.state.search) !== -1; // !== -1 => Si no puedes encontrar este particula especifica, entonces no retornes nada 
+            return empleado.name.toLowerCase().trim().indexOf(this.state.search) !==-1 || empleado.company.toLowerCase().indexOf(this.state.search) !== -1; // !== -1 => Si no puedes encontrar este particula especifica, entonces no retornes nada 
                 
             }
         );
         return (
-            <div>                        
-                <input type="text" 
-                value={this.state.search} 
-                onChange={this.updateSearch} 
-                placeholder="Busqueda" />
-                <form action="" 
+            <div> 
+                <div className="grid_12">                
+                    <input  id="buscador" type="text" 
+                    value={this.state.search} 
+                    onChange={this.updateSearch} 
+                    placeholder="Busqueda" />
+                </div>  
+                
+                
+
+                <form action=""  className="grid_12"
                 onSubmit={this.agregarEmpleado} 
                 ref={(input) => this.empleadoForm = input} >
                     <input type="text" ref="nombre" placeholder="nombre"/>
                     <input type="text" ref="empresa" placeholder="empresa"/>
                     <input type="text" ref="sueldo" placeholder="sueldo"/>
-                    <input type="text" ref="edad"/> 
-                    <input type="text" ref="telefono"/>
-                    <input type="text" ref="correo"/>
-                    <button type="submit">Agregar empleado</button>
+                    <input type="text" ref="edad" placeholder="edad"/> 
+                    <input type="text" ref="telefono" placeholder="telefono"/>
+                    <input type="text" ref="correo" placeholder="correo"/>
+                    <button className="btn-carga-empleados" type="submit">Agregar empleado</button>
                 </form>
+                <ul>
+                    <li>Nombre</li>
+                    <li>Compañia</li>
+                    <li>Sueldo</li>
+                    <li>Edad</li>
+                    <li>Telefono</li>
+                    <li>Correo </li>
+                </ul>
                     <ul> {/*Devolver items de la data ubicada en el archivo index.js, iterando con map y creando un <li/> diferente por cada uno*/}
                     {filteredEmployees.map((empleado) => {
                         return <Empleado key={empleado.id}  empleado={empleado} />
                         })
                     }
-                </ul>
+                    </ul>
+               
             </div>
         );
       }

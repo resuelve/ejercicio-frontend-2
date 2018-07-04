@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { redondeoPrecio } from '../functions'; //Esportar función para los precios
-import '../main.css';
+import '../styles/grid.css';
 
 class Empleado extends Component {
 
@@ -12,18 +12,16 @@ class Empleado extends Component {
             //     }
             // );
             return(
-                <div>
-                        <li>
-                            <p>{this.props.empleado.name}</p>
-                            <p>{this.props.empleado.company }</p>
-                            <p>{this.props.empleado.salary}</p>
-                            <p>{this.props.empleado.age }</p>
-                            <p>{this.props.empleado.phone }</p>
-                            <a href=""> <p>{this.props.empleado.email}</p></a>
-                            <button>Eliminar x</button> 
+                <div className="grid_12">
+                        <li>{this.props.empleado.name}</li>
+                            <li>{this.props.empleado.company }</li>
+                            <li>{this.props.empleado.salary}</li>
+                            <li>{this.props.empleado.age }</li>
+                            <li>{this.props.empleado.phone }</li>
+                            <a href=""><li>{this.props.empleado.email}</li></a>
+                            <button className="eliminar">Eliminar x</button> 
                             {/* {this.props.details.name} */}
-                        </li>
-                    
+
                 </div>
             );
         }

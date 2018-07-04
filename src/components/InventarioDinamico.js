@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormAgregarEmpleados from './FormAgregarEmpleado';
-import '../main.css';
+import '../styles/grid.css';
+import '../styles/main.css'
 
 
 class Inventario extends Component {
@@ -8,7 +9,7 @@ class Inventario extends Component {
             return(
                 <div>
                     <FormAgregarEmpleados agregarEmpleado={this.props.agregarEmpleado}/>
-                    <button onClick={this.props.cargarEjemplo}> Cargar Empleados -></button>
+                    <button className="btn-carga-empleados" onClick={this.props.cargarEjemplo}> Cargar Empleados -></button>
                 </div>
             );
         }
