@@ -57,7 +57,6 @@ class FormAgregarEmpleados extends Component {
                             <input type="text" ref="edad"/> 
                             <input type="text" ref="telefono"/>
                             <input type="text" ref="correo"/>
-                       
                         <button type="submmit">+ Add </button>
                     </form>
                 </div>

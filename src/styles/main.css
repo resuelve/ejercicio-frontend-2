@@ -20,7 +20,8 @@ li {
     text-decoration: none;
     width: 10%;
     display: inline-block;
-    padding: 3vh;
+    padding: 6vh;
+    margin: 1vh;
 }
 
 ul {
@@ -31,6 +32,23 @@ ul {
     margin: 0;
     width: 80%;
 }
+
+.li-style:nth-child(even) {
+    background-color: rgb(69, 100, 143);
+    margin: 3px solid rgb(99, 91, 91);
+    transition-duration: 0.4s;
+}
+
+.li-style:nth-child(odd) {
+    background-color: rgb(202, 208, 218);
+    transition-duration: 0.4s;
+}
+
+.li-style:nth-child(even):hover, .li-style:nth-child(odd):hover  {
+    background-color: rgb(221, 217, 238);
+}
+
+
 
 #buscador {
     border-radius: 15px;
@@ -66,26 +84,21 @@ input[type=text]:focus {
     color: #ffff;
 }
 
-.btn-carga-empleados {
+button {
     background-color: transparent;
     color: #ffffff;
-    height: 6vh;
-    width: 24vh;
     padding: 9px;
     text-decoration: none;
     transition-duration: 0.4s;
     border: 2px solid rgba(255, 255, 255, 0.568);
-
 }
 
-tr:nth-child(odd) {
-    background-color:#f2f2f2;
+.btn-carga-empleados {
+    height: 8vh;
+    width: 22%;
 }
-tr:nth-child(even) {
-    background-color:#ad2f2f;
-}
-.btn-carga-empleados:hover {
-    background: #FEB902;
-    
+
+.btn-carga-empleados:hover, button:hover {
+    background: rgb(21, 100, 80);
     text-decoration: none;
   }
