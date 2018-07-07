@@ -13,7 +13,7 @@ class FormAgregarEmpleados extends Component {
     
     crearEmpleado(e) {
         e.preventDefault(); //Aplica PreventDefault al evento submit
-        console.log('creando nuevo empleado'); 
+        //console.log('creando nuevo empleado'); 
         // const empleado = { //Objeto para añadir un nuevo empleado, pasando refs de los inputs. Este objeto se pasa a App
         //     name : this.name.value,
         //     company : this.company.value,

@@ -71,21 +71,26 @@ class ListaDeEmpelados extends Component {
                     <input type="text" ref="correo" placeholder="correo"/>
                     <button className="btn-carga-empleados" type="submit">Agregar empleado</button>
                 </form>
-                <ul>
-                    <li>Nombre</li>
-                    <li>Compañia</li>
-                    <li>Sueldo</li>
-                    <li>Edad</li>
-                    <li>Telefono</li>
-                    <li>Correo </li>
-                </ul>
-                    <ul> {/*Devolver items de la data ubicada en el archivo index.js, iterando con map y creando un <li/> diferente por cada uno*/}
-                    {filteredEmployees.map((empleado) => {
-                        return <Empleado key={empleado.id}  empleado={empleado} />
-                        })
-                    }
-                    </ul>
-               
+                <table>
+                        <thead>
+                            <tr>
+                                <th className="grid_2">Nombre</th>
+                                <th className="grid_2">Compañia</th>
+                                <th className="grid_2">Sueldo</th>
+                                <th className="grid_1">Edad</th>
+                                <th className="grid_2">Telefono</th>
+                                <th className="grid_2">Correo</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                             {/*Devolver items de la data ubicada en el archivo index.js, iterando con map y creando un <li/> diferente por cada uno*/}
+                            {filteredEmployees.map((empleado) => {
+                                return <Empleado key={empleado.id}  empleado={empleado} />
+                                })
+                            }
+                    </tbody>
+                </table>
+                
             </div>
         );
       }

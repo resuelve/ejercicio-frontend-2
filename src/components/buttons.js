@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import '../styles/grid.css';
-import '../styles/main.css';
 
 
-class Table extends Component {
+class Buttons extends Component {
         render() {
             return(
                 <div className="12">
                     <div className="grid_12">
-                        <img id="logo" src="https://api.kobra.red/img/logos/resuelvetudeuda.png" alt="resuelve"/>
-                        <h1>Empleados Resuelve</h1>
+                        <button>Cambio USD</button>
+                        <button>Consola</button>
                     </div>
                 </div>
             );
         }
     }
 
-export default Header;
+export default Buttons;

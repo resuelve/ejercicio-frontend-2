@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import employees from './employees'
 import Head from './components/Head'
-import Inventario from './components/InventarioDinamico';
 import ListaDeEmpelados from './components/ListaDeEmpleados';
+import Buttons from './components/buttons';
 
 class App extends Component {
   constructor() {
@@ -34,11 +34,12 @@ class App extends Component {
     }
 
   render() {
-    console.log(employees)
+    //console.log(employees)
     return (
       <div id='employees'>
         
           <Head/>
+          <Buttons/>
           <ListaDeEmpelados employees={this.props.employees}/>
             
             

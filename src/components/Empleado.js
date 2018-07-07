@@ -7,23 +7,16 @@ import '../styles/main.css';
 class Empleado extends Component {
 
     render() {
-            // const details  = this.props.empleado;
-            // const  getFilter  = this.props.empleado.filter(
-            //     (empleado) => {
-            //         return empleado.name.indexOf(this.state.search) !== -1;
-            //     }
-            // );
             return(
                 <div className="grid_12">
-                            <li className="li-style grid_1">{this.props.empleado.name}</li>
-                            <li className="li-style grid_1">{this.props.empleado.company }</li>
-                            <li className="li-style grid_1">{this.props.empleado.salary}</li>
-                            <li className="li-style grid_1">{this.props.empleado.age }</li>
-                            <li className="li-style grid_1">{this.props.empleado.phone }</li>
-                            <li className="li-style grid_1"><a href="">{this.props.empleado.email}</a></li>
-                            <button className="eliminar"> x</button> 
+                            <td className="td-style grid_2">{this.props.empleado.name}</td>
+                            <td className="td-style grid_2">{this.props.empleado.company }</td>
+                            <td className="td-style grid_2">{redondeoPrecio(this.props.empleado.salary)} MXN</td>
+                            <td className="td-style grid_1">{this.props.empleado.age }</td>
+                            <td className="td-style grid_2">{this.props.empleado.phone }</td>
+                            <td className="td-style grid_2"><a href="#">{this.props.empleado.email}</a></td>
+                            <button className="eliminar">x</button> 
                             {/* {this.props.details.name} */}
-
                 </div>
             );
         }

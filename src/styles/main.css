@@ -16,39 +16,40 @@ form {
     margin-bottom: 22vh;
 }
 
-li {
-    text-decoration: none;
-    width: 10%;
-    display: inline-block;
-    padding: 6vh;
-    margin: 1vh;
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
 }
 
-ul {
+th{
+    padding-right: 9px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+td {
+    height: 44px;
     text-align: center;
-    list-style: none;
-    margin-left: 0;
-    padding: 16px;
-    margin: 0;
-    width: 80%;
+    border: solid #000000;
 }
 
-.li-style:nth-child(even) {
-    background-color: rgb(69, 100, 143);
+
+.td-style:nth-child(even) {
+    background-color: rgb(117, 151, 199);
     margin: 3px solid rgb(99, 91, 91);
     transition-duration: 0.4s;
 }
 
-.li-style:nth-child(odd) {
+.td-style:nth-child(odd) {
     background-color: rgb(202, 208, 218);
     transition-duration: 0.4s;
 }
 
-.li-style:nth-child(even):hover, .li-style:nth-child(odd):hover  {
+.td-style:nth-child(even):hover, .td-style:nth-child(odd):hover  {
     background-color: rgb(221, 217, 238);
 }
-
-
 
 #buscador {
     border-radius: 15px;
