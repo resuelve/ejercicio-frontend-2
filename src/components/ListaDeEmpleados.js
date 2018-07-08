@@ -3,6 +3,8 @@ import Empleado from './Empleado';
 import '../styles/main.css'
 
 
+
+
 class ListaDeEmpelados extends Component {
     constructor(props) { 
         super(props);
@@ -42,6 +44,14 @@ class ListaDeEmpelados extends Component {
         this.empleadoForm.reset(); //limpiar inputs del form después del evento submit
     }
 
+    deleteEmployee = (index, e) => {
+        //console.log(employeeDeleted);
+        //copia de estado
+        const employees = Object.assign([], this.state.employees);
+        employees.splice(index, 1);
+        this.setState({employees: employees})
+    }
+
     render() { //buscador
         let  filteredEmployees = this.state.employees.filter(
             (empleado) => {
@@ -58,14 +68,12 @@ class ListaDeEmpelados extends Component {
                     placeholder="Busqueda" />
                 </div>  
                 
-                
-
                 <form action=""  className="grid_12"
                 onSubmit={this.agregarEmpleado} 
                 ref={(input) => this.empleadoForm = input} >
                     <input type="text" ref="nombre" placeholder="nombre"/>
                     <input type="text" ref="empresa" placeholder="empresa"/>
-                    <input type="text" ref="sueldo" placeholder="sueldo"/>
+                    <input ref="sueldo" placeholder="sueldo"/>
                     <input type="text" ref="edad" placeholder="edad"/> 
                     <input type="text" ref="telefono" placeholder="telefono"/>
                     <input type="text" ref="correo" placeholder="correo"/>
@@ -84,8 +92,9 @@ class ListaDeEmpelados extends Component {
                         </thead>
                     <tbody>
                              {/*Devolver items de la data ubicada en el archivo index.js, iterando con map y creando un <li/> diferente por cada uno*/}
-                            {filteredEmployees.map((empleado) => {
-                                return <Empleado key={empleado.id}  empleado={empleado} />
+                            {filteredEmployees.map((empleado, index) => {
+                                return <Empleado key={index}  empleado={empleado} removeItem={this.deleteEmployee.bind(this, index)} />
+                                
                                 })
                             }
                     </tbody>

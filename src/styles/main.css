@@ -7,6 +7,18 @@ body {
     float: right;
 }
 
+#delete {
+    margin: 0;
+    width: 0;
+    height: 0;
+}
+
+#style-x {
+    color: #878c9c;
+    margin: solid #878c9c;
+    padding-left: 2px;
+}
+
 form {
     border: 8vh solid #143666;
     background-color: #143666;
@@ -32,13 +44,13 @@ th{
 td {
     height: 44px;
     text-align: center;
-    border: solid #000000;
+    border: solid #989bb4;
 }
 
 
 .td-style:nth-child(even) {
-    background-color: rgb(117, 151, 199);
-    margin: 3px solid rgb(99, 91, 91);
+    background-color: rgb(167, 188, 218);
+    margin: 3px solid #b4b5b9;
     transition-duration: 0.4s;
 }
 
@@ -91,7 +103,7 @@ button {
     padding: 9px;
     text-decoration: none;
     transition-duration: 0.4s;
-    border: 2px solid rgba(255, 255, 255, 0.568);
+    border: 2px solid rgba(179, 177, 212, 0.568);
 }
 
 .btn-carga-empleados {

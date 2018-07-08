@@ -5,8 +5,3 @@ export function redondeoPrecio(centavos) {
     // Insertando coma en las cifras (En lugar de 1000, sería 1,000) una vez que los modificadores encuentran que el number ya se ha repetido 3 veces.
     }
 
-//Conversor USD
-
-// export function cambioDolar(salario) {
-//     if (salario === )
-// }

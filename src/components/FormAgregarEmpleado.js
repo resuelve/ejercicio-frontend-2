@@ -21,17 +21,17 @@ class FormAgregarEmpleados extends Component {
         //     age : this.age.value
         // }
         let name = this.refs.nombre.value;
-        // let company = this.refs.empresa.value;
-        // let salary = this.refs.sueldo.value;
-        // let age = this.refs.edad.value;
-        // let phone = this.refs.telefono.value;
-        // let email = this.refs.correo.value;
+        let company = this.refs.empresa.value;
+        let salary = this.refs.sueldo.value;
+        let age = this.refs.edad.value;
+        let phone = this.refs.telefono.value;
+        let email = this.refs.correo.value;
 
        
-        // let id = Math.floor((Math.random() * 100)+1);
+        let id = Math.floor((Math.random() * 100)+1);
         this.setState({
             employees : this.state.employees.concat({
-               name
+            id:id, name, company, salary, age, phone, email
             })
          })
 

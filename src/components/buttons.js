@@ -8,7 +8,9 @@ class Buttons extends Component {
                 <div className="12">
                     <div className="grid_12">
                         <button>Cambio USD</button>
-                        <button>Consola</button>
+                        <button onClick={
+                            {/* ()=> {()} */}
+                        }>Consola</button>
                     </div>
                 </div>
             );
