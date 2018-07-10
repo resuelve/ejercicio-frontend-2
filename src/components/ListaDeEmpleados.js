@@ -73,14 +73,14 @@ class ListaDeEmpelados extends Component {
                 ref={(input) => this.empleadoForm = input} >
                     <input type="text" ref="nombre" placeholder="nombre"/>
                     <input type="text" ref="empresa" placeholder="empresa"/>
-                    <input ref="sueldo" placeholder="sueldo"/>
+                    <input type="text" ref="sueldo" placeholder="sueldo"/>
                     <input type="text" ref="edad" placeholder="edad"/> 
                     <input type="text" ref="telefono" placeholder="telefono"/>
                     <input type="text" ref="correo" placeholder="correo"/>
                     <button className="btn-carga-empleados" type="submit">Agregar empleado</button>
                 </form>
                 <table>
-                        <thead>
+                       
                             <tr>
                                 <th className="grid_2">Nombre</th>
                                 <th className="grid_2">Compañia</th>
@@ -89,7 +89,7 @@ class ListaDeEmpelados extends Component {
                                 <th className="grid_2">Telefono</th>
                                 <th className="grid_2">Correo</th>
                             </tr>
-                        </thead>
+                        
                     <tbody>
                              {/*Devolver items de la data ubicada en el archivo index.js, iterando con map y creando un <li/> diferente por cada uno*/}
                             {filteredEmployees.map((empleado, index) => {

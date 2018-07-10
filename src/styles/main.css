@@ -28,29 +28,31 @@ form {
     margin-bottom: 22vh;
 }
 
-table {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
+ table {
+    border-collapse: collapse;
     border-color: gray;
+    width: 100%;
+}
+
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
 th{
-    padding-right: 9px;
+    padding-right: 12px;
     font-size: 18px;
     font-weight: bold;
 }
 
-td {
-    height: 44px;
-    text-align: center;
-    border: solid #989bb4;
+th, td {
+    padding: 4px;
+    margin: 14px solid;
 }
-
 
 .td-style:nth-child(even) {
     background-color: rgb(167, 188, 218);
-    margin: 3px solid #b4b5b9;
+    margin: 1px solid #b4b5b9;
     transition-duration: 0.4s;
 }
 

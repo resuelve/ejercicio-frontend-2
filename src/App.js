@@ -7,25 +7,16 @@ import Buttons from './components/buttons';
 class App extends Component {
   constructor() {
     super();
-    // this.agregarEmpleado = this.agregarEmpleado.bind(this);
-    // this.cargarEjemplo = this.agregarEmpleado.bind(this);
-    //estado inicial
     this.state = {
       empleados: {},
       clave: {}
     };
   }
 
-  agregarEmpleado (empleado) {
-    //actualizar estado
-    //copia
-    // const empleados = {this.state.empleados};
-    // const contadorTiempo = Date.now(); 
-    // empleados[`empleado-${contadorTiempo}`] = empleado; 
-    // //cambio de estado
-    // this.setState({ empleados });
-    }
-
+  dataEmployers() {
+    console.log(employees);
+  }
+  
     //Funcion para cargar empleados
     cargarEjemplo() {
       this.setState({
@@ -38,7 +29,7 @@ class App extends Component {
     return (
       <div id='employees'>
           <Head/>
-          <Buttons/>
+          <Buttons pintarConsola={this.dataEmployers} />
           <ListaDeEmpelados employees={employees}/>
       </div>
     );
