@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../styles/grid.css';
+import '../main.css'
+
 
 
 class Buttons extends Component {
@@ -9,10 +10,10 @@ class Buttons extends Component {
 
         render() {
             return(
-                <div className="12">
-                    <div className="grid_12">
-                        <button>Cambio USD</button>
-                        <button onClick={this.props.pintarConsola}>Consola</button>
+                <div >
+                    <div >
+                        <button onClick={this.props.changeDolar}>Cambio USD</button>
+                        <button onClick={this.props.pintarConsola}>Consola</button> 
                     </div>
                 </div>
             );

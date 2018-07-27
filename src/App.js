@@ -3,6 +3,8 @@ import employees from './employees'
 import Head from './components/Head'
 import ListaDeEmpelados from './components/ListaDeEmpleados';
 import Buttons from './components/buttons';
+import './main.css'
+
 
 class App extends Component {
   constructor() {

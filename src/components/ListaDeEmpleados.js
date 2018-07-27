@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Empleado from './Empleado';
-import '../styles/main.css'
-
-
+import '../styles/main.css';
+import '../main.css';
 
 
 class ListaDeEmpelados extends Component {
@@ -80,16 +79,16 @@ class ListaDeEmpelados extends Component {
                     <button className="btn-carga-empleados" type="submit">Agregar empleado</button>
                 </form>
                 <table>
-                       
+                       <thead>
                             <tr>
-                                <th className="grid_2">Nombre</th>
-                                <th className="grid_2">Compañia</th>
-                                <th className="grid_2">Sueldo</th>
-                                <th className="grid_1">Edad</th>
-                                <th className="grid_2">Telefono</th>
-                                <th className="grid_2">Correo</th>
+                                <th>Nombre</th>
+                                <th>Compañia</th>
+                                <th>Sueldo</th>
+                                <th>Edad</th>
+                                <th>Telefono</th>
+                                <th>Correo</th>
                             </tr>
-                        
+                        </thead>
                     <tbody>
                              {/*Devolver items de la data ubicada en el archivo index.js, iterando con map y creando un <li/> diferente por cada uno*/}
                             {filteredEmployees.map((empleado, index) => {
