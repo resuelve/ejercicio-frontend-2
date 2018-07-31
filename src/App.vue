@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-      <h1>Ejercicio Frontend</h1>
+    <h1>Ejercicio Frontend</h1>
+    <Employees />
     <Instructions />
   </div>
 </template>
 
 <script>
+import Employees from './components/Employees'
+
 export default {
   name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  data: () => ({
+
+  }),
+
+  components: {
+    Employees
+  }  
 }
 </script>
 
