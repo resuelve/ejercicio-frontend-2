@@ -1,15 +1,15 @@
 <template lang="html">
   <div class="">
     <input type="text" v-model="query" @keyup="search()" placeholder="Buscar...." />
-    <table id="employees_table">
+    <table id="employees_table" class="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Compañía</th>
+          <th class="mdl-data-table__cell--non-numeric">Nombre</th>
+          <th class="mdl-data-table__cell--non-numeric">Compañía</th>
           <th>Edad</th>
           <th>Salario</th>
-          <th>Teléfono</th>
-          <th>Correo</th>
+          <th class="mdl-data-table__cell--non-numeric">Teléfono</th>
+          <th class="mdl-data-table__cell--non-numeric">Correo</th>
           <th></th>
         </tr>
       </thead>
@@ -19,15 +19,15 @@
           <tr :data-id="employee.id">
             <!-- La vista de los datos normal -->
             <template v-if="!editable">
-              <td>{{ employee.name }}</td>
-              <td>{{ employee.company }}</td>
+              <td class="mdl-data-table__cell--non-numeric">{{ employee.name }}</td>
+              <td class="mdl-data-table__cell--non-numeric">{{ employee.company }}</td>
               <td>{{ employee.age }}</td>
               <td class="currency">
                 <span v-if="usd">{{ employee.salary | dollar | currency }}</span>
                 <span v-else>{{ employee.salary | currency }}</span>
               </td>
-              <td>{{ employee.phone }}</td>
-              <td>{{ employee.email }}</td>
+              <td class="mdl-data-table__cell--non-numeric">{{ employee.phone }}</td>
+              <td class="mdl-data-table__cell--non-numeric">{{ employee.email }}</td>
             </template>
             <!-- La vista de los datos en modo editable -->
             <template v-if="editable">

@@ -1,10 +1,31 @@
 <template>
   <div id="app">
-    <h1>Ejercicio Frontend</h1>
-    <!-- Se inyecta la tabla de empleados -->
-    <Employees />
-    <!-- Se incluyen las instrucciones como modal -->
-    <Instructions />
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <div class="demo-ribbon"></div>
+      <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <h3>Ejercicio Frontend</h3>
+            <!-- Se inyecta la tabla de empleados -->
+            <Employees />
+            <!-- Se incluyen las instrucciones como modal -->
+            <Instructions />
+          </div>
+        </div>
+        <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <ul class="mdl-mini-footer--link-list">
+                <li><a
+                  href="https://github.com/diegovinie/ejercicio-frontend-2"
+                  target="_blank"
+                  >Repositorio</a></li>
+              <li>2018</li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
   </div>
 </template>
 
