@@ -1,6 +1,13 @@
 <template lang="html">
-  <div class="">
-    <input type="text" v-model="query" @keyup="search()" placeholder="Buscar...." />
+  <div>
+    <div class="mdl-textfield mdl-js-textfield">
+      <input
+        class="mdl-textfield__input"
+        type="text"
+        v-model="query"
+        @keyup="search()"
+        placeholder="Buscar...." />
+    </div>
     <table id="employees_table" class="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <thead>
         <tr>
