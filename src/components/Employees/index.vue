@@ -16,7 +16,10 @@
           <td>{{ employee.name }}</td>
           <td>{{ employee.company }}</td>
           <td>{{ employee.age }}</td>
-          <td class="currency">{{ employee.salary | currency }}</td>
+          <td class="currency">
+            <span v-if="usd">{{ employee.salary | dollar | currency }}</span>
+            <span v-else>{{ employee.salary | currency }}</span>
+          </td>
           <td>{{ employee.phone }}</td>
           <td>{{ employee.email }}</td>
         </tr>
@@ -43,7 +46,10 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="6"><button type="button" @click="editable = !editable">Editar</button> </td>
+          <td colspan="6">
+            <button type="button" @click="editable = !editable">Editar</button>
+            <button type="button" @click="usd = !usd">USD$/MXN$</button>
+          </td>
         </tr>
       </tfoot>
     </table>
@@ -56,7 +62,8 @@ import employees from '../../employees'
 export default {
   data: () => ({
     employees,
-    editable: false
+    editable: false,
+    usd: false
   })
 }
 </script>
