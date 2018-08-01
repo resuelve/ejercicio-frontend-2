@@ -59,7 +59,7 @@
             </template>
             <td>
               <a href @click.prevent="deleteEmployee(employee.id)" >
-                <span>X</span>
+                <span class="material-icons">delete</span>
               </a>
             </td>
           </tr>
