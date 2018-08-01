@@ -59,6 +59,7 @@
 export default {
   data () {
     return {
+      // Controla la visibilidad del modal
       active: false
     }
   }
@@ -66,11 +67,10 @@ export default {
 </script>
 
 <style scoped>
-
+  /* La ventana modal */
   .modal-cont {
     background-color: #cc8;
     width: 600px;
-
     padding: 10px 20px;
     margin-top: 25px;
     margin-right: 5px;
@@ -81,6 +81,7 @@ export default {
     overflow-y: auto;
   }
 
+  /* El botón de activar */
   .btn-switch {
     background-color: green;
     color: white;
@@ -92,6 +93,8 @@ export default {
     padding: 2px 4px 2px 4px;
     border-radius: 4px;
   }
+
+  /* Transiciones */
 
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
