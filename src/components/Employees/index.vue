@@ -39,22 +39,22 @@
             <!-- La vista de los datos en modo editable -->
             <template v-if="editable">
               <td>
-                <input type="text" v-model="employee.name" />
+                <input class="mdl-textfield__input" type="text" v-model="employee.name" />
               </td>
               <td>
-                <input type="text" v-model="employee.company" readonly />
+                <input class="mdl-textfield__input" type="text" v-model="employee.company" readonly />
               </td>
               <td>
-                <input type="text" v-model="employee.age" />
+                <input class="mdl-textfield__input" type="text" v-model="employee.age" />
               </td>
               <td class="currency">
-                <input type="text" v-model="employee.salary" />
+                <input class="mdl-textfield__input" type="text" v-model="employee.salary" />
               </td>
               <td>
-                <input type="text" v-model="employee.phone" />
+                <input class="mdl-textfield__input" type="text" v-model="employee.phone" />
               </td>
               <td>
-                <input type="email" v-model="employee.email" />
+                <input class="mdl-textfield__input" type="email" v-model="employee.email" />
               </td>
             </template>
             <td>
