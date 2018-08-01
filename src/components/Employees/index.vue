@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    <input type="text" @keyup="search($event)" placeholder="Buscar...." />
+    <input type="text" v-model="query" @keyup="search()" placeholder="Buscar...." />
     <table id="employees_table">
       <thead>
         <tr>
@@ -59,27 +59,40 @@
           <td colspan="6">
             <button type="button" @click="editable = !editable">Editar</button>
             <button type="button" @click="usd = !usd">USD$/MXN$</button>
+            <button type="button" @click="viewform = true">Agregar</button>
           </td>
         </tr>
       </tfoot>
     </table>
+    <AddEmployee
+      v-if="viewform"
+      :employees="rawData"
+      @cancel="viewform = false"
+      @saved="handleEmployeeSaved" />
   </div>
 </template>
 
 <script>
 import rawData from '../../employees'
+import AddEmployee from './AddEmployee'
 
 export default {
   data: () => ({
     rawData,
     employees: [],
     editable: false,
+    viewform: false,
+    query: '',
     usd: false
   }),
 
+  components: {
+    AddEmployee
+  },
+
   methods: {
-    search (ev) {
-      let re = new RegExp(ev.target.value, 'i')
+    search () {
+      let re = new RegExp(this.query, 'i')
       this.employees = this.rawData.filter((item) => (
         item.name.toString().match(re)
           || item.company.toString().match(re))
@@ -89,11 +102,22 @@ export default {
     deleteEmployee (id) {
       this.employees = this.employees.filter((item) => item.id !== id)
       this.rawData = this.rawData.filter((item) => item.id !== id)
+    },
+
+    resetData () {
+      this.employees = this.rawData
+      this.query = ''
+    },
+
+    handleEmployeeSaved () {
+      this.resetData()
+      this.viewform = false
     }
+
   },
 
   created () {
-    this.employees = this.rawData
+    this.resetData()
   }
 }
 </script>
