@@ -8,7 +8,7 @@
         @keyup="search()"
         placeholder="Buscar...." />
     </div>
-    <table id="employees_table" class="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <table id="employees_table" class="table_special table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <thead>
         <tr>
           <th class="mdl-data-table__cell--non-numeric">Nombre</th>
@@ -224,6 +224,10 @@ export default {
 </script>
 
 <style lang="css">
+  .table_special {
+    margin: 5px 5px 10px 20px;
+    overflow-y: auto;
+  }
 
   .currency {
     text-align: right;
