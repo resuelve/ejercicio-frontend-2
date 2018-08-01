@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <h1>Ejercicio Frontend</h1>
+    <!-- Se inyecta la tabla de empleados -->
     <Employees />
+    <!-- Se incluyen las instrucciones como modal -->
     <Instructions />
   </div>
 </template>
 
 <script>
+// Este componente maneja la tabla de los empleados
 import Employees from './components/Employees'
 
 export default {
@@ -17,7 +20,7 @@ export default {
 
   components: {
     Employees
-  }  
+  }
 }
 </script>
 
