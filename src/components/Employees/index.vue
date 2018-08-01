@@ -10,6 +10,7 @@
           <th>Salario</th>
           <th>Teléfono</th>
           <th>Correo</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -49,6 +50,7 @@
               </td>
 
             </template>
+            <td><a href @click.prevent="deleteEmployee(employee.id)" ><span>X</span></a></td>
           </tr>
         </template>
       </tbody>
@@ -82,6 +84,11 @@ export default {
         item.name.toString().match(re)
           || item.company.toString().match(re))
       )
+    },
+
+    deleteEmployee (id) {
+      this.employees = this.employees.filter((item) => item.id !== id)
+      this.rawData = this.rawData.filter((item) => item.id !== id)
     }
   },
 
