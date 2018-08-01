@@ -60,6 +60,7 @@
             <button type="button" @click="editable = !editable">Editar</button>
             <button type="button" @click="usd = !usd">USD$/MXN$</button>
             <button type="button" @click="viewform = true">Agregar</button>
+            <button type="button" @click="printEmployees">Imprimir</button>
           </td>
         </tr>
       </tfoot>
@@ -112,6 +113,11 @@ export default {
     handleEmployeeSaved () {
       this.resetData()
       this.viewform = false
+    },
+
+    printEmployees () {
+      let clone = JSON.parse(JSON.stringify(this.employees))
+      console.log(clone)
     }
 
   },
