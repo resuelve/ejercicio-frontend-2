@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import jsdom from 'jsdom'
 import App from './App.vue'
+import './filters'
 
 const renderer = require('vue-server-renderer').createRenderer()
 

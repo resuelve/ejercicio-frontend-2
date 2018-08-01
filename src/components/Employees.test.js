@@ -2,6 +2,7 @@ import Vue from 'vue'
 import {JSDOM} from 'jsdom'
 import Employees from './Employees'
 import data from '../employees'
+import '../filters'
 
 const renderer = require('vue-server-renderer').createRenderer()
 const Component = Vue.extend(Employees)
