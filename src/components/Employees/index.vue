@@ -38,10 +38,10 @@
             </template>
             <!-- La vista de los datos en modo editable -->
             <template v-if="editable">
-              <td>
+              <td class="custom_text_input">
                 <input class="mdl-textfield__input" type="text" v-model="employee.name" />
               </td>
-              <td>
+              <td class="custom_text_input">
                 <input class="mdl-textfield__input" type="text" v-model="employee.company" readonly />
               </td>
               <td>
@@ -50,10 +50,10 @@
               <td class="currency">
                 <input class="mdl-textfield__input" type="text" v-model="employee.salary" />
               </td>
-              <td>
+              <td class="custom_text_input">
                 <input class="mdl-textfield__input" type="text" v-model="employee.phone" />
               </td>
-              <td>
+              <td class="custom_text_input">
                 <input class="mdl-textfield__input" type="email" v-model="employee.email" />
               </td>
             </template>
@@ -231,5 +231,15 @@ export default {
 
   .currency {
     text-align: right;
+  }
+
+  .custom_text_input {
+    transition: width 2s linear;
+    -moz-transition: width 2s linear;
+    -webkit-transition: width 2s linear;
+  }
+
+  .custom_text_input:hover {
+    width: 250px;
   }
 </style>
