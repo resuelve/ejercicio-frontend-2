@@ -14,7 +14,7 @@
           <th class="mdl-data-table__cell--non-numeric">Nombre</th>
           <th class="mdl-data-table__cell--non-numeric">Compañía</th>
           <th>Edad</th>
-          <th>Salario</th>
+          <th>Salario <small>({{ usd ? 'USD$' : 'MXN$' }})</small></th>
           <th class="mdl-data-table__cell--non-numeric">Teléfono</th>
           <th class="mdl-data-table__cell--non-numeric">Correo</th>
           <th></th>
