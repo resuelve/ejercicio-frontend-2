@@ -12,25 +12,41 @@
 </template>
 
 <script>
+/*
+ * Componente para agregar empleado.
+ *
+ * Recibe (array) employees La lista de empleados y le agrega un nuevo
+ * elemento.
+ */
+
 export default {
   data: () => ({
-    create: {
+    create: {           // (object) Maneja los campos de entrada del formulario
       name: null,
       company: null,
       age: null,
+      salary: 0,
       phone: null,
       email: null
     }
   }),
 
-  props: ['employees'],
+  props: ['employees'],   // (array) Los datos de los empleados
 
   methods: {
+    /**
+     * Guarda un nuevo empleado.
+     *
+     * @listens event:click
+     * @emits parent:saved Informa que fue guardado.
+     *
+     * @param {array} $props.employees La lista de empleados.
+     * @param {object} $data.create Los datos del nuevo.
+     */
     store () {
+      // Se crea un clon de los datos y se puja
       this.employees.push(JSON.parse(JSON.stringify(this.create)))
-      this.viewform = false
       this.$emit('saved')
-      this.$destroy()
     }
   },
 
