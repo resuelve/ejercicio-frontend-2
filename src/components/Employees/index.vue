@@ -69,33 +69,42 @@
         <tr>
           <td colspan="6">
             <button
+              id="btn-edit"
               type="button"
               @click="editable = !editable"
               class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary"
               >
               <i class="material-icons">edit</i>
             </button>
+            <div class="mdl-tooltip" data-mdl-for="btn-edit">Editar los campos</div>
             <button
               type="button"
+              id="btn-money"
               @click="usd = !usd"
               class="mdl-button mdl-js-button mdl-button--fab"
               >
               <i class="material-icons">attach_money</i>
             </button>
+            <div class="mdl-tooltip" data-mdl-for="btn-money">
+              Cambiar a {{ !usd ? 'Dólares Americanos' : 'Pesos Mexicanos' }}</div>
             <button
+              id="btn-print"
               type="button"
               @click="printEmployees"
               class="mdl-button mdl-js-button mdl-button--fab"
               >
               <i class="material-icons">print</i>
             </button>
+            <div class="mdl-tooltip" data-mdl-for="btn-print">Imprimir lista en consola</div>
             <button
+              id="btn-add"
               type="button"
               @click="viewform = true"
               class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
               >
               <i class="material-icons">add</i>
             </button>
+            <div class="mdl-tooltip" data-mdl-for="btn-add">Agregar un nuevo empleado</div>
           </td>
         </tr>
       </tfoot>
