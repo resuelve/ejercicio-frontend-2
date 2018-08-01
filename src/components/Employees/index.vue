@@ -14,8 +14,10 @@
         </tr>
       </thead>
       <tbody>
+        <!-- Se iteran los datos de empleados -->
         <template v-for="employee in employees">
           <tr :data-id="employee.id">
+            <!-- La vista de los datos normal -->
             <template v-if="!editable">
               <td>{{ employee.name }}</td>
               <td>{{ employee.company }}</td>
@@ -26,9 +28,8 @@
               </td>
               <td>{{ employee.phone }}</td>
               <td>{{ employee.email }}</td>
-
             </template>
-
+            <!-- La vista de los datos en modo editable -->
             <template v-if="editable">
               <td>
                 <input type="text" v-model="employee.name" />
@@ -48,9 +49,12 @@
               <td>
                 <input type="email" v-model="employee.email" />
               </td>
-
             </template>
-            <td><a href @click.prevent="deleteEmployee(employee.id)" ><span>X</span></a></td>
+            <td>
+              <a href @click.prevent="deleteEmployee(employee.id)" >
+                <span>X</span>
+              </a>
+            </td>
           </tr>
         </template>
       </tbody>
@@ -65,6 +69,7 @@
         </tr>
       </tfoot>
     </table>
+    <!-- Se inyecta el formulario de agregar empleado -->
     <AddEmployee
       v-if="viewform"
       :employees="rawData"
@@ -74,17 +79,27 @@
 </template>
 
 <script>
+/*
+ * Componente de administración de empleados.
+ *
+ * Importa los datos originales de los empleados y permite editarlos y
+ * eliminarlos. Además se puede filtrar por nombre y empresa. El
+ * sub-componente AddEmployee maneja la lógica de agregar un empleado.
+ */
+
+// Los datos crudos
 import rawData from '../../employees'
+// El sub-componente formulario de agregar empleado
 import AddEmployee from './AddEmployee'
 
 export default {
   data: () => ({
     rawData,
-    employees: [],
-    editable: false,
-    viewform: false,
-    query: '',
-    usd: false
+    employees: [],        // (array) Empleados filtrados para renderizar
+    editable: false,      // (bool) Controla la edición de los todos los campos
+    viewform: false,      // (bool) Activa el AddEmployee (formulario)
+    query: '',            // (string) La consulta de la barra de búsqueda
+    usd: false            // (bool) Controla si se visualizan cantidades en dólares
   }),
 
   components: {
@@ -92,29 +107,68 @@ export default {
   },
 
   methods: {
+    /**
+     * Filtra los datos de la tabla.
+     *
+     * Toma los datos crudos (sin modificarlos) y los filtra según la consulta
+     * guarndándolos en el array employees. Filtra por nombre o empresa.
+     *
+     * @param {string} $data.query La consulta.
+     * @param {array} $data.rawData Los empleados originales.
+     * @param {array} $data.employees Los empleados filtrados.
+     */
     search () {
       let re = new RegExp(this.query, 'i')
+      // Filtra de los datos crudos al array que renderiza
       this.employees = this.rawData.filter((item) => (
         item.name.toString().match(re)
           || item.company.toString().match(re))
       )
     },
 
+    /**
+     * Elimina un empleado con un id dado de los datos originales.
+     *
+     * @param {int} id Identificación del empleado.
+     * @param {array} $data.rawData Los empleados originales.
+     * @param {array} $data.employees Los empleados filtrados.
+     */
     deleteEmployee (id) {
       this.employees = this.employees.filter((item) => item.id !== id)
       this.rawData = this.rawData.filter((item) => item.id !== id)
     },
 
-    resetData () {
+    /**
+     * Iguala los empleados filtrados a los originales.
+     *
+     * @param {array} $data.rawData Los empleados originales.
+     * @param {array} $data.employees Los empleados filtrados.
+     * @param {string} $data.query La consulta.
+     */
+    resetFilter () {
       this.employees = this.rawData
       this.query = ''
     },
 
+    /**
+     * Reinicia los filtros cuando se agraga un nuevo empleado.
+     *
+     * @listens AddEmployee~event:save
+     *
+     * @param {bool} $data.viewform Apaga el formulario.
+     */
     handleEmployeeSaved () {
-      this.resetData()
+      this.resetFilter()
       this.viewform = false
     },
 
+    /**
+     * Imprime el array de empleados en consola.
+     *
+     * @listens event:click
+     *
+     * @param {array} $data.employees Los empleados.
+     */
     printEmployees () {
       let clone = JSON.parse(JSON.stringify(this.employees))
       console.log(clone)
@@ -123,7 +177,8 @@ export default {
   },
 
   created () {
-    this.resetData()
+    // Reinicia los filtros al crear
+    this.resetFilter()
   }
 }
 </script>
