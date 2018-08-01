@@ -12,38 +12,45 @@
           <th>Correo</th>
         </tr>
       </thead>
-      <tbody v-for="employee in employees">
-        <tr :data-id="employee.id" v-show="!editable">
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.company }}</td>
-          <td>{{ employee.age }}</td>
-          <td class="currency">
-            <span v-if="usd">{{ employee.salary | dollar | currency }}</span>
-            <span v-else>{{ employee.salary | currency }}</span>
-          </td>
-          <td>{{ employee.phone }}</td>
-          <td>{{ employee.email }}</td>
-        </tr>
-        <tr :data-id="employee.id" v-show="editable">
-          <td>
-            <input type="text" v-model="employee.name" />
-          </td>
-          <td>
-            <input type="text" v-model="employee.company" readonly />
-          </td>
-          <td>
-            <input type="text" v-model="employee.age" />
-          </td>
-          <td class="currency">
-            <input type="text" v-model="employee.salary" />
-          </td>
-          <td>
-            <input type="text" v-model="employee.phone" />
-          </td>
-          <td>
-            <input type="email" v-model="employee.email" />
-          </td>
-        </tr>
+      <tbody>
+        <template v-for="employee in employees">
+          <tr :data-id="employee.id">
+            <template v-if="!editable">
+              <td>{{ employee.name }}</td>
+              <td>{{ employee.company }}</td>
+              <td>{{ employee.age }}</td>
+              <td class="currency">
+                <span v-if="usd">{{ employee.salary | dollar | currency }}</span>
+                <span v-else>{{ employee.salary | currency }}</span>
+              </td>
+              <td>{{ employee.phone }}</td>
+              <td>{{ employee.email }}</td>
+
+            </template>
+
+            <template v-if="editable">
+              <td>
+                <input type="text" v-model="employee.name" />
+              </td>
+              <td>
+                <input type="text" v-model="employee.company" readonly />
+              </td>
+              <td>
+                <input type="text" v-model="employee.age" />
+              </td>
+              <td class="currency">
+                <input type="text" v-model="employee.salary" />
+              </td>
+              <td>
+                <input type="text" v-model="employee.phone" />
+              </td>
+              <td>
+                <input type="email" v-model="employee.email" />
+              </td>
+
+            </template>
+          </tr>
+        </template>
       </tbody>
       <tfoot>
         <tr>
