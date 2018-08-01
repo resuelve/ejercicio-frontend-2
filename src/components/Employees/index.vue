@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="">
+    <input type="text" @keyup="search($event)" placeholder="Buscar...." />
     <table id="employees_table">
       <thead>
         <tr>
@@ -57,14 +58,29 @@
 </template>
 
 <script>
-import employees from '../../employees'
+import rawData from '../../employees'
 
 export default {
   data: () => ({
-    employees,
+    rawData,
+    employees: [],
     editable: false,
     usd: false
-  })
+  }),
+
+  methods: {
+    search (ev) {
+      let re = new RegExp(ev.target.value, 'i')
+      this.employees = this.rawData.filter((item) => (
+        item.name.toString().match(re)
+          || item.company.toString().match(re))
+      )
+    }
+  },
+
+  created () {
+    this.employees = this.rawData
+  }
 }
 </script>
 
