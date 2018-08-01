@@ -61,10 +61,34 @@
       <tfoot>
         <tr>
           <td colspan="6">
-            <button type="button" @click="editable = !editable">Editar</button>
-            <button type="button" @click="usd = !usd">USD$/MXN$</button>
-            <button type="button" @click="viewform = true">Agregar</button>
-            <button type="button" @click="printEmployees">Imprimir</button>
+            <button
+              type="button"
+              @click="editable = !editable"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary"
+              >
+              <i class="material-icons">edit</i>
+            </button>
+            <button
+              type="button"
+              @click="usd = !usd"
+              class="mdl-button mdl-js-button mdl-button--fab"
+              >
+              <i class="material-icons">attach_money</i>
+            </button>
+            <button
+              type="button"
+              @click="printEmployees"
+              class="mdl-button mdl-js-button mdl-button--fab"
+              >
+              <i class="material-icons">print</i>
+            </button>
+            <button
+              type="button"
+              @click="viewform = true"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
+              >
+              <i class="material-icons">add</i>
+            </button>
           </td>
         </tr>
       </tfoot>
