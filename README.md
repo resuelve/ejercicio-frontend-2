@@ -1,8 +1,13 @@
 ## En esta rama se hizo el ejercicio con Vue
   - El ejercicio se realizó usando [Vue.js](https://vuejs.org/) y una plantilla de [Material Design Lite](https://getmdl.io/).
-  - Algunos estilos se sobreescribieron con clases custom para cumplir con los
-  - objetivos del ejercicio.
+  - Algunos estilos se sobreescribieron con clases custom para cumplir con los objetivos del ejercicio.
   - La demostración está disponible [aquí](http://resuelve.proyectowaraira.com).
+
+### Para ejecutar:
+  - Clonar la rama.
+  - Para instalar dependencias: `yarn install`
+  - Para ejecutar en modo desarrollo: `yarn run dev`
+  - Para ejecutar en modo producción: `yarn run build` luego levantar un servidor.
 
 ### TODO:
   - Las validaciones para los campos en modo edición.
