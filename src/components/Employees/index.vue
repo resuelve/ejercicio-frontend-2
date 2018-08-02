@@ -29,7 +29,7 @@
               <td class="mdl-data-table__cell--non-numeric">{{ employee.name }}</td>
               <td class="mdl-data-table__cell--non-numeric">{{ employee.company }}</td>
               <td>{{ employee.age }}</td>
-              <td class="currency">
+              <td :class="{ 'currency': true, 'text-poor': employee.salary < 10000, 'text-rich': employee.salary > 10000 }">
                 <span v-if="usd">{{ employee.salary | dollar | currency }}</span>
                 <span v-else>{{ employee.salary | currency }}</span>
               </td>
@@ -47,7 +47,7 @@
               <td>
                 <input class="mdl-textfield__input" type="text" v-model="employee.age" />
               </td>
-              <td class="currency">
+              <td :class="{ 'currency': true, 'text-poor': employee.salary < 10000, 'text-rich': employee.salary > 10000 }">
                 <input class="mdl-textfield__input" type="text" v-model="employee.salary" />
               </td>
               <td class="custom_text_input">
@@ -261,7 +261,6 @@ export default {
     left: 0;
     height: 100vh;
     width: 100vw;
-
   }
 
   .modal-cont {
@@ -283,6 +282,14 @@ export default {
 
   tr:hover {
     color: #145214;   /* green 20% */
+  }
+
+  td.text-poor {
+    color: #ff3300 !important; /* red 50% */
+  }
+
+  td.text-rich {
+    color: #00802b !important; /* gree 25% */
   }
 
   /* Transiciones */
