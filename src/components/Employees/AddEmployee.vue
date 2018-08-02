@@ -114,10 +114,12 @@ export default {
   },
 
   mounted () {
-      this.$el.querySelector('input').focus()
+    // Enfoca el primer input del formulario
+    this.$el.querySelector('input').focus()
   },
 
   destroyed () {
+    // Solo para control
     console.log('destruido')
   }
 }
