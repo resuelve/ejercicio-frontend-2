@@ -138,7 +138,12 @@
  * sub-componente AddEmployee maneja la lógica de agregar un empleado.
  */
 
-// Los datos crudos
+ /* Este componente maneja la tabla de los empleados.
+  *
+  * Debido a que solo se utilizó un componente (Employees) no se utilizó
+  * vuex (el manejador de estado) y en su lugar el puntero del objeto que
+  * tiene los datos de los empleados se transmite a través de props.
+  */
 import rawData from '../../employees'
 // El sub-componente formulario de agregar empleado
 import AddEmployee from './AddEmployee'
@@ -157,6 +162,16 @@ export default {
   }),
 
   computed: {
+    /**
+     * Clases para los botones.
+     *
+     * Esta variable computada controla los estilos de los botones. Por
+     * default beautify es falso para que se vean los estilos custom.
+     *
+     * @param {bool} $data.beautify Es el controlador.
+     *
+     * @return {object} Las clases activas.
+     */
     classButtons () {
       return {
         'custom-button': !this.beautify,
@@ -251,6 +266,7 @@ export default {
 </script>
 
 <style lang="css">
+  /* Ajusta la tabla al contenedor */
   .table_special {
     margin: auto;
     margin-bottom: 20px;
@@ -258,6 +274,7 @@ export default {
     overflow-y: auto;
   }
 
+  /* Alinear montos a la derecha */
   .currency {
     text-align: right;
   }
@@ -268,10 +285,12 @@ export default {
     -webkit-transition: width 2s linear;
   }
 
+  /* Para agrandar los campos cuando se necesita editar */
   .custom_text_input:hover {
     width: 250px;
   }
 
+  /* Modal del formulario de agregar empleado */
   .modal-shell {
     background: rgba(0, 0, 0, 0.3);
     color: #fff;
@@ -295,22 +314,27 @@ export default {
     transition: all .8s;
   }
 
+  /* Para hacer las filas de colores distintos */
    tr.row-colored {
     background-color: #ebfaeb;   /* green 95% */
   }
 
+  /* Cambia el color del texto cuando se pasa el puntero */
   tr:hover {
     color: #145214;   /* green 20% */
   }
 
+  /* Cuando el salario es menor de 10000 */
   td.text-poor {
     color: #ff3300 !important;    /* red 50% */
   }
 
+  /* Cuando el salario es mayor de 10000 */
   td.text-rich {
     color: #00802b !important;    /* gree 25% */
   }
 
+  /* Estilos de botones según instrucciones */
   .custom-button {
     background-color: rgba(0, 0, 0, .2);
     border-radius: 50%;
