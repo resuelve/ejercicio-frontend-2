@@ -218,20 +218,7 @@ export default {
     printEmployees () {
       let clone = JSON.parse(JSON.stringify(this.employees))
       console.log(clone)
-    },
-
-    showDialog () {
-      let dialog = window.document.getElementById('show-dialog')
-      // if (! dialog.showModal) {
-      //   dialogPolyfill.registerDialog(dialog);
-      // }
-      console.log(dialog)
-      dialog.style.display = 'block'
-      // dialog.showModal()
-      let inp = dialog.querySelector('input')
-      console.log(inp)
     }
-
   },
 
   created () {
