@@ -47,6 +47,7 @@
             type="text"
             v-model="create.phone"
             pattern="^\(\d{3}\) \d{3} \d{4}$"
+            title="(###) ### ####"
             placeholder="Teléfono" />
         </div>
         <div class="mdl-textfield mdl-js-textfield">
