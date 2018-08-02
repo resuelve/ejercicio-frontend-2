@@ -277,8 +277,12 @@ export default {
     transition: all .8s;
   }
 
-   .row-colored {
-    background-color: #ebfaeb;
+   tr.row-colored {
+    background-color: #ebfaeb;   /* green 95% */
+  }
+
+  tr:hover {
+    color: #145214;   /* green 20% */
   }
 
   /* Transiciones */
