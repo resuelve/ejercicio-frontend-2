@@ -11,10 +11,10 @@ Vue.filter('currency', (num) => {
   })
 })
 
-Vue.filter('dollar', (num) => {
+Vue.filter('dollar', (num, exchange) => {
   if (typeof num !== 'number') {
     num = Number.parseFloat(num)
   }
 
-  return num / 21.50
+  return num / exchange
 })

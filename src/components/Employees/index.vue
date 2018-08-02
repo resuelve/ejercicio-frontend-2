@@ -14,7 +14,9 @@
           <th class="mdl-data-table__cell--non-numeric">Nombre</th>
           <th class="mdl-data-table__cell--non-numeric">Compañía</th>
           <th>Edad</th>
-          <th>Salario <small>({{ usd ? 'USD$' : 'MXN$' }})</small></th>
+          <th>
+            Salario <small>({{ usd && !editable ? 'USD$' : 'MXN$' }})</small>
+          </th>
           <th class="mdl-data-table__cell--non-numeric">Teléfono</th>
           <th class="mdl-data-table__cell--non-numeric">Correo</th>
           <th></th>
@@ -30,7 +32,7 @@
               <td class="mdl-data-table__cell--non-numeric">{{ employee.company }}</td>
               <td>{{ employee.age }}</td>
               <td :class="{ 'currency': true, 'text-poor': employee.salary < 10000, 'text-rich': employee.salary > 10000 }">
-                <span v-if="usd">{{ employee.salary | dollar | currency }}</span>
+                <span v-if="usd">{{ employee.salary | dollar(exchange) | currency }}</span>
                 <span v-else>{{ employee.salary | currency }}</span>
               </td>
               <td class="mdl-data-table__cell--non-numeric">{{ employee.phone }}</td>
@@ -86,7 +88,10 @@
               <i class="material-icons">attach_money</i>
             </button>
             <div class="mdl-tooltip" data-mdl-for="btn-money">
-            Cambiar a {{ !usd ? 'Dólares Americanos' : 'Pesos Mexicanos' }}</div>
+                Cambiar a {{ !usd ? 'Dólares Americanos' : 'Pesos Mexicanos' }}
+                <br>
+                {{ exchange }} MXN$/USD$
+            </div>
             <button
               id="btn-print"
               type="button"
@@ -147,7 +152,8 @@ export default {
     query: '',            // (string) La consulta de la barra de búsqueda
     usd: false,           // (bool) Controla si se visualizan cantidades en dólares
     rowColored: false,    // (bool) Controla el color de las filas
-    beautify: false       // (bool) Controla las clases de MDL en algunas cosas
+    beautify: false,      // (bool) Controla las clases de MDL en algunas cosas
+    exchange: 21.50       // (float) Valor del dólar
   }),
 
   computed: {
