@@ -216,8 +216,10 @@ export default {
      * @param {array} $data.employees Los empleados.
      */
     printEmployees () {
-      let clone = JSON.parse(JSON.stringify(this.employees))
-      console.log(clone)
+      let cloneEmployees = JSON.parse(JSON.stringify(this.employees))
+      let cloneRawData = JSON.parse(JSON.stringify(this.rawData))
+      console.log('Empleados filtrados: ', cloneEmployees)
+      console.log('Empleados totales: ', cloneRawData)
     }
   },
 
