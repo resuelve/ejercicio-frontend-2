@@ -5,7 +5,7 @@ Vue.filter('currency', (num) => {
     num = Number.parseFloat(num)
   }
 
-  return num.toLocaleString('es-ES', {
+  return num.toLocaleString('es-MX', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   })
