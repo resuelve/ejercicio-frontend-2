@@ -8,7 +8,7 @@
         @keyup="search()"
         placeholder="Buscar...." />
     </div>
-    <table id="employees_table" class="table_special table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <table id="employees_table" class="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <thead>
         <tr>
           <th class="mdl-data-table__cell--non-numeric">Nombre</th>
@@ -22,8 +22,8 @@
       </thead>
       <tbody>
         <!-- Se iteran los datos de empleados -->
-        <template v-for="employee in employees">
-          <tr :data-id="employee.id">
+        <template v-for="(employee, index) in employees">
+          <tr :data-id="employee.id" :class="index % 2 ? '' : 'row-colored'">
             <!-- La vista de los datos normal -->
             <template v-if="!editable">
               <td class="mdl-data-table__cell--non-numeric">{{ employee.name }}</td>
@@ -145,7 +145,8 @@ export default {
     editable: false,      // (bool) Controla la edición de los todos los campos
     viewform: false,      // (bool) Activa el AddEmployee (formulario)
     query: '',            // (string) La consulta de la barra de búsqueda
-    usd: false            // (bool) Controla si se visualizan cantidades en dólares
+    usd: false,            // (bool) Controla si se visualizan cantidades en dólares
+    rowColored: false     // (bool) Controla el color de las filas
   }),
 
   components: {
@@ -274,6 +275,10 @@ export default {
     border-radius: 10px;
     padding: 10px;
     transition: all .8s;
+  }
+
+   .row-colored {
+    background-color: #ebfaeb;
   }
 
   /* Transiciones */
