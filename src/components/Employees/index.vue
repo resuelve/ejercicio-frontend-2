@@ -72,7 +72,7 @@
               id="btn-edit"
               type="button"
               @click="editable = !editable"
-              class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary"
+              :class="classButtons"
               >
               <i class="material-icons">edit</i>
             </button>
@@ -81,26 +81,26 @@
               type="button"
               id="btn-money"
               @click="usd = !usd"
-              class="mdl-button mdl-js-button mdl-button--fab"
+              :class="classButtons"
               >
               <i class="material-icons">attach_money</i>
             </button>
             <div class="mdl-tooltip" data-mdl-for="btn-money">
-              Cambiar a {{ !usd ? 'Dólares Americanos' : 'Pesos Mexicanos' }}</div>
+            Cambiar a {{ !usd ? 'Dólares Americanos' : 'Pesos Mexicanos' }}</div>
             <button
               id="btn-print"
               type="button"
               @click="printEmployees"
-              class="mdl-button mdl-js-button mdl-button--fab"
+              :class="classButtons"
               >
               <i class="material-icons">print</i>
             </button>
-            <div class="mdl-tooltip" data-mdl-for="btn-print">Imprimir lista en consola</div>
+          <div class="mdl-tooltip" data-mdl-for="btn-print">Imprimir lista en consola</div>
             <button
               id="btn-add"
               type="button"
               @click="viewform = true"
-              class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
+              :class="classButtons"
               >
               <i class="material-icons">add</i>
             </button>
@@ -145,9 +145,22 @@ export default {
     editable: false,      // (bool) Controla la edición de los todos los campos
     viewform: false,      // (bool) Activa el AddEmployee (formulario)
     query: '',            // (string) La consulta de la barra de búsqueda
-    usd: false,            // (bool) Controla si se visualizan cantidades en dólares
-    rowColored: false     // (bool) Controla el color de las filas
+    usd: false,           // (bool) Controla si se visualizan cantidades en dólares
+    rowColored: false,    // (bool) Controla el color de las filas
+    beautify: false       // (bool) Controla las clases de MDL en algunas cosas
   }),
+
+  computed: {
+    classButtons () {
+      return {
+        'custom-button': !this.beautify,
+        'mdl-button': this.beautify,
+        'mdl-js-button': this.beautify,
+        'mdl-button--fab': this.beautify  ,
+        'mdl-button--primary': this.beautify
+      }
+    }
+  },
 
   components: {
     AddEmployee
@@ -285,11 +298,28 @@ export default {
   }
 
   td.text-poor {
-    color: #ff3300 !important; /* red 50% */
+    color: #ff3300 !important;    /* red 50% */
   }
 
   td.text-rich {
-    color: #00802b !important; /* gree 25% */
+    color: #00802b !important;    /* gree 25% */
+  }
+
+  .custom-button {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    border-color: #00802b;
+    border-style: solid;
+    border-width: 2px;
+    height: 60px;
+    width: 60px;
+    transition: all .3s;
+    color: #00802b;
+  }
+
+  .custom-button:hover {
+    background-color: #00802b;
+    color: #FFF;
   }
 
   /* Transiciones */
