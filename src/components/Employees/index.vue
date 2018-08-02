@@ -110,11 +110,17 @@
       </tfoot>
     </table>
     <!-- Se inyecta el formulario de agregar empleado -->
-    <AddEmployee
-      v-if="viewform"
-      :employees="rawData"
-      @cancel="viewform = false"
-      @saved="handleEmployeeSaved" />
+      <div class="modal-shell" v-show="viewform">
+        <transition name="fade">
+          <div  class="modal-cont mdl-shadow--2dp mld-grid">
+            <AddEmployee
+              v-if="viewform"
+              :employees="rawData"
+              @cancel="viewform = false"
+              @saved="handleEmployeeSaved" />
+          </div>
+        </transition>
+      </div>
   </div>
 </template>
 
@@ -212,6 +218,18 @@ export default {
     printEmployees () {
       let clone = JSON.parse(JSON.stringify(this.employees))
       console.log(clone)
+    },
+
+    showDialog () {
+      let dialog = window.document.getElementById('show-dialog')
+      // if (! dialog.showModal) {
+      //   dialogPolyfill.registerDialog(dialog);
+      // }
+      console.log(dialog)
+      dialog.style.display = 'block'
+      // dialog.showModal()
+      let inp = dialog.querySelector('input')
+      console.log(inp)
     }
 
   },
@@ -241,5 +259,38 @@ export default {
 
   .custom_text_input:hover {
     width: 250px;
+  }
+
+  .modal-shell {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+  }
+
+  .modal-cont {
+    background-color: #fff;
+    width: 60%;
+    color: #000;
+    position: relative;
+    margin: auto;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all .8s;
+  }
+
+  /* Transiciones */
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
   }
 </style>

@@ -1,14 +1,37 @@
 <template lang="html">
-  <form class="" @submit.prevent="store" method="post">
-    <input type="text" v-model="create.name" placeholder="Nombre" />
-    <input type="text" v-model="create.company" placeholder="Compañía" />
-    <input type="text" v-model="create.age" placeholder="Edad..." />
-    <input type="text" v-model="create.salary" placeholder="Salario" />
-    <input type="text" v-model="create.phone" placeholder="Teléfono" />
-    <input type="text" v-model="create.email" placeholder="Correo" />
-    <button type="submit" name="button">Guardar</button>
-    <button @click.prevent="$emit('cancel')">Cancelar</button>
-  </form>
+  <div class="">
+    <div class="">
+      <h4>Agregar Empleado</h4>
+    </div>
+    <form class="" @submit.prevent="store" method="post">
+        <div class="mdl-textfield mdl-js-textfield">
+          <input id="form_name" class="mdl-textfield__input" type="text" v-model="create.name" placeholder="Nombre" />
+          <span class="mdl-textfield__error">error</span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" v-model="create.company" placeholder="Compañía" />
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" v-model="create.age" placeholder="Edad" />
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" v-model="create.salary" placeholder="Salario" />
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" v-model="create.phone" placeholder="Teléfono" />
+
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" v-model="create.email" placeholder="Correo" />
+
+        </div>
+        <div class="">
+          <button class="mdl-button" type="submit" name="button">Guardar</button>
+          <button class="mdl-button" @click.prevent="$emit('cancel')">Cancelar</button>
+        </div>
+      </form>
+  </div>
 </template>
 
 <script>
@@ -25,7 +48,7 @@ export default {
       name: null,
       company: null,
       age: null,
-      salary: 0,
+      salary: null,
       phone: null,
       email: null
     }
@@ -48,6 +71,10 @@ export default {
       this.employees.push(JSON.parse(JSON.stringify(this.create)))
       this.$emit('saved')
     }
+  },
+
+  mounted () {
+      this.$el.querySelector('input').focus()
   },
 
   destroyed () {
