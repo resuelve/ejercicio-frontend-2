@@ -20,6 +20,7 @@
                   href="https://github.com/diegovinie/ejercicio-frontend-2"
                   target="_blank"
                   >Repositorio</a></li>
+              <li><a href="mailto:diego.viniegra@gmail.com">Diego Viniegra</a></li>
               <li>2018</li>
             </ul>
           </div>
