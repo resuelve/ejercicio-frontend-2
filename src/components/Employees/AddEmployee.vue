@@ -45,6 +45,7 @@
 export default {
   data: () => ({
     create: {           // (object) Maneja los campos de entrada del formulario
+      id: null,
       name: null,
       company: null,
       age: null,
@@ -67,6 +68,11 @@ export default {
      * @param {object} $data.create Los datos del nuevo.
      */
     store () {
+      // El id se saca del mayor id encontrado más 1
+      this.create.id = this.employees.reduce((acc, item) => {
+        return item.id > acc.id ? item : acc
+      }).id + 1
+      
       // Se crea un clon de los datos y se puja
       this.employees.push(JSON.parse(JSON.stringify(this.create)))
       this.$emit('saved')
