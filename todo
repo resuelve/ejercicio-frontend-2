@@ -1,0 +1,25 @@
+
+
+filtros: formato dinero, moneda
+
+CRUD empleados
+/main.js                # configuración de Vue y entrypoint
+/App.vue                # la aplicación
+/scr/helpers.js               # funciones de ayuda
+/scr/filters.js               # se definen las funciones de formato
+/scr/store/index.js           # la lógica del estado
+/scr/components/SearchEngine.vue  # barra de búsqueda
+/scr/components/Employees/index.vue   # la lógica del manejo de empleados
+/scr/components/Employees/ListEmployees.vue   # subcomponente crea la tabla
+/scr/components/Employees/SingleEmployee.vue    # subcomponente con datos del empleado
+/scr/components/Employees/AddEmployee.vue     # diálogo para agregar empleado
+
+/tests/Feature/EmployeesTest.js
+    botones lleven al componente correcto
+    la tabla renderice
+    el formulario renderice
+    se agregue correctamente un nuevo empleado
+    borre correctamente un empleado (rev mocking)
+    Actualice los datos de un empleado (mocking)
+/tests/Feature/StyleTest.js
+    todas las cosas de css
