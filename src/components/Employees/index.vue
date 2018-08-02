@@ -243,7 +243,9 @@ export default {
 
 <style lang="css">
   .table_special {
-    margin: 5px 5px 10px 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-right: 20px;
     overflow-y: auto;
   }
 
